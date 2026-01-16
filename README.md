@@ -13,7 +13,7 @@
 [![Base](https://img.shields.io/badge/Base-Sepolia-0052FF?logo=base)](https://base.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-[Explore Docs](https://bayar-r-docs.netlify.app/) · View Demo (coming soon) · [Report Bug](https://github.com/hafidluqman50/bayar-r/issues)
+[Explore Docs](https://bayar-r-docs.netlify.app/) · [View Demo](https://bayar-r.vercel.app/) · [Report Bug](https://github.com/hafidluqman50/bayar-r/issues)
 
 **Stack:** React, Vite, Tailwind CSS, OnchainKit, Wagmi, Viem, React Query, Foundry, Solidity  
 **Network:** Base Sepolia  

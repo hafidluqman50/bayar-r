@@ -53,6 +53,11 @@ const config: Config = {
         },
         {
           href: 'https://github.com/hafidluqman50/bayar-r',
+        },
+        {
+          href: 'https://bayar-r.vercel.app/',
+          label: 'Demo',
+          position: 'right',
           label: 'GitHub',
           position: 'right',
         },
@@ -67,6 +72,15 @@ const config: Config = {
             {
               label: 'Repository',
               href: 'https://github.com/hafidluqman50/bayar-r',
+            },
+            {
+              label: 'Demo',
+              href: 'https://bayar-r.vercel.app/',
+        },
+        {
+          href: 'https://bayar-r.vercel.app/',
+          label: 'Demo',
+          position: 'right',
             },
           ],
         },
