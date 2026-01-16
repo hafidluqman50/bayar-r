@@ -57,7 +57,7 @@ function ShareLinkPage() {
         light: "#ffffff",
       },
     })
-      .then(url => setQrDataUrl(url))
+      .then((url: string) => setQrDataUrl(url))
       .catch(() => setQrDataUrl(""))
   }, [paylink])
 

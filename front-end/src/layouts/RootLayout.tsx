@@ -3,10 +3,11 @@ import { useState } from "react"
 import {
   ConnectWallet,
   Wallet,
+  WalletAdvancedAddressDetails,
   WalletAdvancedTokenHoldings,
+  WalletAdvancedTransactionActions,
   WalletAdvancedWalletActions,
   WalletDropdown,
-  WalletDropdownDisconnect,
 } from "@coinbase/onchainkit/wallet"
 
 const steps = [
@@ -71,11 +72,10 @@ function RootLayout() {
             <Wallet>
               <ConnectWallet className="w-full sm:w-auto" />
               <WalletDropdown>
-                <div className="min-w-[260px] space-y-3 p-2">
-                  <WalletAdvancedWalletActions />
-                  <WalletAdvancedTokenHoldings />
-                  <WalletDropdownDisconnect />
-                </div>
+                <WalletAdvancedWalletActions />
+                <WalletAdvancedAddressDetails />
+                <WalletAdvancedTransactionActions />
+                <WalletAdvancedTokenHoldings />
               </WalletDropdown>
             </Wallet>
           </div>

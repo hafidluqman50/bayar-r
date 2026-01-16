@@ -7,9 +7,7 @@ import { WalletProvider } from "@coinbase/onchainkit/wallet"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { router } from "./router"
 
-const walletConnectProjectId =
-  import.meta.env.VITE_WALLETCONNECT_PROJECT_ID ??
-  "e11626027da1ee5b8b3ea34496552146"
+const walletConnectProjectId = import.meta.env.VITE_WALLETCONNECT_PROJECT_ID
 
 const wagmiConfig = createConfig({
   chains: [baseSepolia],
@@ -49,7 +47,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <WagmiProvider config={wagmiConfig}>
         <OnchainKitProvider
-          apiKey={import.meta.env.VITE_ONCHAINKIT_API_KEY ?? ""}
+          apiKey={import.meta.env.VITE_ONCHAINKIT_API_KEY}
           chain={baseSepolia}
           config={{
             wallet: {

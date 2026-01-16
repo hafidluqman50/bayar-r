@@ -9,9 +9,6 @@ import { type Paylink } from "../utils/paylink"
 const DAY_MS = 24 * 60 * 60 * 1000
 const DECIMALS = 18n
 
-const paylinkPaidEvent = paylinkAbi.find(
-  entry => entry.type === "event" && entry.name === "PaylinkPaid",
-)
 
 export type CreatePaylinkInput = {
   amount: number
@@ -79,43 +76,6 @@ export function usePaylink(id?: string) {
     refetchInterval: 5000,
     refetchOnWindowFocus: true,
   })
-}
-
-async function findPaidEventTxHash(
-  publicClient: ReturnType<typeof usePublicClient>,
-  id: bigint,
-  paidAtMs: number,
-) {
-  if (!publicClient) return null
-  const paidAtSeconds = Math.floor(paidAtMs / 1000)
-  const latestBlock = await publicClient.getBlockNumber()
-  let cursor = latestBlock
-
-  for (let i = 0; i < 60; i += 1) {
-    const block = await publicClient.getBlock({ blockNumber: cursor })
-    if (!block?.timestamp) break
-
-    const blockSeconds = Number(block.timestamp)
-    if (blockSeconds <= paidAtSeconds || cursor <= 9n) {
-      const fromBlock = cursor > 9n ? cursor - 9n : 0n
-      const logs = await publicClient.getLogs({
-        address: PAYLINK_ADDRESS,
-        event: paylinkPaidEvent,
-        args: {
-          id,
-        },
-        fromBlock,
-        toBlock: cursor,
-      })
-
-      if (!logs.length) return null
-      return logs[logs.length - 1]?.transactionHash ?? null
-    }
-
-    cursor = cursor > 9n ? cursor - 9n : 0n
-  }
-
-  return null
 }
 
 export function useCreatePaylink() {
